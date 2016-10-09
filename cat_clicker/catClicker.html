@@ -8,16 +8,25 @@
 
     <script>
       $(function() {
-        $('#cat-pic').click(function(e) {
-          var numClicksElem = $('#num-clicks');
-          var numClicks = +$('#num-clicks').text();
-          $('#num-clicks').text(numClicks + 1);
+        $('#cat-pic1').click(function(e) {
+          var numClicksElem = $('#num-clicks1');
+          var numClicks = +$('#num-clicks1').text();
+          $('#num-clicks1').text(numClicks + 1);
+        });
+
+        $('#cat-pic2').click(function(e) {
+          var numClicksElem = $('#num-clicks2');
+          var numClicks = +$('#num-clicks2').text();
+          $('#num-clicks2').text(numClicks + 1);
         });
       });
     </script>
   <head>
   <body>
-    <img id="cat-pic" src="cat.jpg" />
-    <div id="num-clicks">0</div>
+    <img id="cat-pic1" src="cat1.jpg" />
+    <div id="num-clicks1">0</div>
+    <br />
+    <img id="cat-pic2" src="cat2.jpg" />
+    <div id="num-clicks2">0</div>
   </body>
 </html>
