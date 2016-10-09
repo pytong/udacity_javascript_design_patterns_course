@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <script
+      src="http://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous">
+    </script>
+
+    <script>
+      $(function() {
+        $('#cat-pic').click(function(e) {
+          var numClicksElem = $('#num-clicks');
+          var numClicks = +$('#num-clicks').text();
+          $('#num-clicks').text(numClicks + 1);
+        });
+      });
+    </script>
+  <head>
+  <body>
+    <img id="cat-pic" src="cat.jpg" />
+    <div id="num-clicks">0</div>
+  </body>
+</html>
