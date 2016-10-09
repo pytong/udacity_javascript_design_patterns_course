@@ -8,25 +8,41 @@
 
     <script>
       $(function() {
-        $('#cat-pic1').click(function(e) {
-          var numClicksElem = $('#num-clicks1');
-          var numClicks = +$('#num-clicks1').text();
-          $('#num-clicks1').text(numClicks + 1);
-        });
+        var numCats = 5,
+            numClicks = [],
+            catNames = ["cat1", "cat2", "cat3", "cat4", "cat5"];
 
-        $('#cat-pic2').click(function(e) {
-          var numClicksElem = $('#num-clicks2');
-          var numClicks = +$('#num-clicks2').text();
-          $('#num-clicks2').text(numClicks + 1);
-        });
+        for (var i = 0; i < numCats; i++) {
+          numClicks[i] = 0;
+        }
+
+        for (var i = 0; i < numCats; i++) {
+          $("#cat-list").append("<img data-index='" + (i+1) + "' id='cat-pic" + (i+1) + "' width=100 height=100 src='cat" + (i+1) + ".jpg' />");
+
+          (function(icopy) {
+            $('#cat-pic' + (icopy + 1)).click(function(e) {
+              $("#name").text(catNames[icopy]);
+              $("#display-image").attr({"src": "cat" + (icopy + 1) + ".jpg"});
+              numClicks[icopy] = numClicks[icopy] + 1;
+              $('#num-clicks').text(numClicks[icopy]);
+            });
+          }(i));
+        }
+
+
       });
     </script>
   <head>
   <body>
-    <img id="cat-pic1" src="cat1.jpg" />
-    <div id="num-clicks1">0</div>
-    <br />
-    <img id="cat-pic2" src="cat2.jpg" />
-    <div id="num-clicks2">0</div>
+    <div id="cat-list"></div>
+    <img width=500 height=400 id="display-image" />
+    <div>
+      <span>Name:</span>
+      <span id=name></span>
+    </div>
+    <div>
+      <span># Clicks:</span>
+      <span id=num-clicks></span>
+    </div>
   </body>
 </html>
